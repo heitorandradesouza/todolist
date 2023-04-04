@@ -1,4 +1,10 @@
-<app-todo-item></app-todo-item>
-<app-todo-item></app-todo-item>
-<app-todo-item></app-todo-item>
-<app-todo-item></app-todo-item>
+<div class="component">
+    <div class="list">
+        <div class="item" *ngFor="let item of todoList">
+            <app-todo-item></app-todo-item>
+            <button (click)="removeToDo(item.id)">remove</button>
+        </div>
+    </div>
+</div>
+
+<button (click)="addNewToDo()">add</button>

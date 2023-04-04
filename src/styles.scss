@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import "assets/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
 
 * {
     padding: 0;
@@ -9,7 +12,7 @@ html,
 body {
     height: 100%;
     width: 100%;
-    background: purple;
+    background: linear-gradient(180deg, rgba(53, 48, 92, 1) 0%, rgba(34, 26, 52, 1) 100%);
     color: white;
     font-family: "Roboto", sans-serif;
 }
