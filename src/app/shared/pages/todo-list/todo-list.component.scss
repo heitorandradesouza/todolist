@@ -1,8 +1,33 @@
 .component {
+    padding: 30px;
     .list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         .item {
             display: flex;
             flex-direction: row;
         }
+    }
+}
+
+.speeddial {
+    bottom: 100px;
+    right: 100px;
+    position: absolute;
+}
+
+.dialog{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 20px;
+    textarea{
+        width: 100%;
+    }
+    .priority-calendar{
+        display:flex;
+        flex-direction: row;
+        gap: 20px;
     }
 }

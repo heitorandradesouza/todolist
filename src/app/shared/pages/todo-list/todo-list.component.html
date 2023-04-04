@@ -2,10 +2,38 @@
     <div class="list">
         <div class="item" *ngFor="let item of todoList">
             <app-todo-item [description]="item.description" [dueDate]="item.dueDate"
-                [priority]="item.priority"></app-todo-item>
-            <button (click)="removeToDo(item.id)">remove</button>
+                [priority]="item.priority.name"></app-todo-item>
+            <p-button (click)="removeToDo(item.id)" icon="pi pi-check-circle"></p-button>
         </div>
     </div>
 </div>
 
-<button (click)="addNewToDo()">add</button>
+<div class="speeddial">
+    <p-speedDial (click)="openNewToDoDialog()"></p-speedDial>
+</div>
+
+<p-dialog header="New To Do Item" [(visible)]="newTodoDialog" [style]="{width: '80vw', height: '45vh'}">
+    <div class="dialog">
+
+        <span class="p-float-label">
+            <textarea rows="5" cols="30" pInputTextarea [(ngModel)]="newTodoText"></textarea>
+            <label for="float-label">Description</label>
+        </span>
+        <div class="priority-calendar">
+            <span class="p-float-label">
+                <p-dropdown appendTo="body" [options]="priorities" [(ngModel)]="selectedPriority"
+                    optionLabel="name"></p-dropdown>
+                <label for="float-label">Select a Priority</label>
+            </span>
+            <span class="p-float-label">
+                <p-calendar appendTo="body" [(ngModel)]="dueDate" [minDate]="now" [showIcon]="true"
+                    [showTime]="true"></p-calendar>
+                <label for="float-label">Select a Due Date</label>
+            </span>
+
+        </div>
+    </div>
+    <ng-template pTemplate="footer">
+        <p-button label="Add" (click)="addNewToDo()" icon="pi pi-plus"></p-button>
+    </ng-template>
+</p-dialog>

@@ -7,11 +7,19 @@ import { Component } from '@angular/core';
 })
 export class TodoListComponent {
   todoList: any = [];
-  newTodoText: string = "test";
+  newTodoText: string = "";
   selectedPriority: any;
   dueDate: Date = new Date();
   todoListBkp: any = [];
+  newTodoDialog: boolean = false;
+  priorities: any = []
+  now: Date = new Date();
   constructor() {
+    this.priorities = [
+      { name: 'High', color: '#1a122c' },
+      { name: 'Mid', color: '#281c44' },
+      { name: 'Low', color: '#38285e' },
+    ];
     this.loadList();
   }
 
@@ -43,6 +51,10 @@ export class TodoListComponent {
   removeToDo(id: string) {
     this.todoList = this.todoList.filter((item: any) => item.id !== id)
     this.saveList();
+  }
+
+  openNewToDoDialog() {
+    this.newTodoDialog = !this.newTodoDialog;
   }
 
 }
