@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class TodoListComponent {
   todoList: any = [];
-  newTodoText: string = "";
+  newTodoText: string = "test";
   selectedPriority: any;
   dueDate: Date = new Date();
   todoListBkp: any = [];

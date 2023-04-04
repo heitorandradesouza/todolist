@@ -1,7 +1,8 @@
 <div class="component">
     <div class="list">
         <div class="item" *ngFor="let item of todoList">
-            <app-todo-item></app-todo-item>
+            <app-todo-item [description]="item.description" [dueDate]="item.dueDate"
+                [priority]="item.priority"></app-todo-item>
             <button (click)="removeToDo(item.id)">remove</button>
         </div>
     </div>
