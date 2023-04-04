@@ -1,12 +1,22 @@
 .component {
     display: grid;
     grid-template-rows: 1fr min-content;
-    border: 1px solid white;
-    border-radius: 5px;
-    min-width: 220px;
+    background: #3c1f7b;
+    border-radius: 5px 0 0 5px;
+    width: 320px;
+    padding: 16px;
+    gap: 10px;
+    .description {
+        width: 100%;
+        display: flex;
+        overflow: auto;
+        overflow-wrap: anywhere;
+        border-top: 1px solid #ac76e6;
+        padding-top: 10px;
+    }
     .info {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        border-top: 1px solid white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 }

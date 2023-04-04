@@ -1,12 +1,12 @@
 <div class="component">
     <div class="search-bar p-inputgroup">
-        <input type="text" pInputText placeholder="Keyword" [(ngModel)]="search" (ngModelChange)="searchToDo()" />
+        <input type="text" pInputText placeholder="Filter" [(ngModel)]="search" (ngModelChange)="searchToDo()" />
     </div>
     <div class="list">
         <div class="item" *ngFor="let item of todoList">
             <app-todo-item [description]="item.description" [dueDate]="item.dueDate"
                 [priority]="item.priority.name"></app-todo-item>
-            <p-button (click)="removeToDo(item.id)" icon="pi pi-check-circle"></p-button>
+            <p-button (click)="removeToDo(item.id)" icon="pi pi-check-circle" class="remove-button"></p-button>
         </div>
     </div>
 </div>

@@ -1,9 +1,15 @@
 .component {
     padding: 30px;
+    height: 100%;
     .list {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
+        align-items: flex-start;
+        justify-content: center;
+        margin-top: 20px;
+        height: 95%;
+        flex-wrap: wrap;
         .item {
             display: flex;
             flex-direction: row;
@@ -17,6 +23,7 @@
             min-width: 300px;
             width: 50%;
             height: 30px;
+            padding-left: 10px;
         }
     }
 }
@@ -24,7 +31,7 @@
 .speeddial {
     bottom: 100px;
     right: 100px;
-    position: absolute;
+    position: fixed;
 }
 
 .dialog {
@@ -41,3 +48,17 @@
         gap: 20px;
     }
 }
+
+:host ::ng-deep {
+    .p-button.p-button-icon-only {
+        border-radius: 0 5px 5px 0;
+        width: 30px;
+        height: 100%;
+    }
+    .p-button.p-button-icon-only.p-button-rounded {
+        border-radius: 50%;
+        width: 4rem;
+        height: 4rem;
+    }
+}
+

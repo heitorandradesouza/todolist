@@ -35,7 +35,7 @@ export class TodoListComponent {
       "id": self.crypto.randomUUID()
     };
     this.todoList.push(newItem);
-
+    this.newTodoText = "";
     this.saveList();
   }
 
@@ -62,8 +62,7 @@ export class TodoListComponent {
     if (this.search.length == 0)
       this.loadList();
     if (this.search.length > 1)
-      this.todoList = this.todoListBkp.filter((obj: any) =>
-        JSON.stringify(obj).toLowerCase().includes(this.search.toLowerCase())
+      this.todoList = this.todoListBkp.filter((obj: any) => JSON.stringify(obj.description).toLowerCase().includes(this.search.toLowerCase())
       )
   }
 }
