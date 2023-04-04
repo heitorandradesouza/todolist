@@ -1,4 +1,7 @@
 <div class="component">
+    <div class="search-bar p-inputgroup">
+        <input type="text" pInputText placeholder="Keyword" [(ngModel)]="search" (ngModelChange)="searchToDo()" />
+    </div>
     <div class="list">
         <div class="item" *ngFor="let item of todoList">
             <app-todo-item [description]="item.description" [dueDate]="item.dueDate"

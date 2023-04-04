@@ -14,6 +14,7 @@ export class TodoListComponent {
   newTodoDialog: boolean = false;
   priorities: any = []
   now: Date = new Date();
+  search: any = "";
   constructor() {
     this.priorities = [
       { name: 'High', color: '#1a122c' },
@@ -57,4 +58,12 @@ export class TodoListComponent {
     this.newTodoDialog = !this.newTodoDialog;
   }
 
+  searchToDo() {
+    if (this.search.length == 0)
+      this.loadList();
+    if (this.search.length > 1)
+      this.todoList = this.todoListBkp.filter((obj: any) =>
+        JSON.stringify(obj).toLowerCase().includes(this.search.toLowerCase())
+      )
+  }
 }

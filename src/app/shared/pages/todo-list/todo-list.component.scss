@@ -9,6 +9,16 @@
             flex-direction: row;
         }
     }
+    .search-bar {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        input {
+            min-width: 300px;
+            width: 50%;
+            height: 30px;
+        }
+    }
 }
 
 .speeddial {
@@ -17,16 +27,16 @@
     position: absolute;
 }
 
-.dialog{
+.dialog {
     display: flex;
     flex-direction: column;
     gap: 25px;
     margin-top: 20px;
-    textarea{
+    textarea {
         width: 100%;
     }
-    .priority-calendar{
-        display:flex;
+    .priority-calendar {
+        display: flex;
         flex-direction: row;
         gap: 20px;
     }
