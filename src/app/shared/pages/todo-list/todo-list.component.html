@@ -1,6 +1,12 @@
 <div class="component">
     <div class="search-bar p-inputgroup">
+
         <input type="text" pInputText placeholder="Filter" [(ngModel)]="search" (ngModelChange)="searchToDo()" />
+
+        <div class="order-buttons">
+            <p-button label="Priority" (click)="orderBy('priority')"></p-button>
+            <p-button label="Due Date" (click)="orderBy('date')"></p-button>
+        </div>
     </div>
     <div class="list">
         <div class="item" *ngFor="let item of todoList">

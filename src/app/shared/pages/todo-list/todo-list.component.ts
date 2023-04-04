@@ -15,6 +15,8 @@ export class TodoListComponent {
   priorities: any = []
   now: Date = new Date();
   search: any = "";
+  reverseDueDate: any;
+  reversePriority: any;
   constructor() {
     this.priorities = [
       { name: 'High', color: '#1a122c' },
@@ -25,6 +27,8 @@ export class TodoListComponent {
   }
 
   addNewToDo() {
+    if (this.newTodoText.length < 1)
+      return
     const todoList = localStorage.getItem('todoList');
     this.todoList = todoList !== null ? JSON.parse(todoList) : [];
 
@@ -65,4 +69,25 @@ export class TodoListComponent {
       this.todoList = this.todoListBkp.filter((obj: any) => JSON.stringify(obj.description).toLowerCase().includes(this.search.toLowerCase())
       )
   }
+
+
+  orderBy(type: any) {
+    if (type == 'priority') {
+      this.reversePriority = !this.reversePriority;
+      if (this.reversePriority)
+        this.todoList = this.todoList.sort((a: any, b: any) => (a.priority.name > b.priority.name ? 1 : -1))
+      else
+        this.todoList = this.todoList.sort((a: any, b: any) => (b.priority.name > a.priority.name ? 1 : -1))
+    } else {
+      if (type == 'date') {
+        this.reverseDueDate = !this.reverseDueDate;
+        if (this.reverseDueDate)
+          this.todoList = this.todoList.sort((a: any, b: any) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime());
+        else
+          this.todoList = this.todoList.sort((a: any, b: any) => new Date(b.dueDate).getTime() - new Date(a.dueDate).getTime());
+
+      }
+    }
+  }
+
 }
